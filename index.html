@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>MARS DRAGON RUN — 3D Endless Runner</title>
+  <link rel="stylesheet" href="./src/style.css" />
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.169.0/build/three.module.js"
+      }
+    }
+  </script>
+</head>
+<body>
+  <div id="game-container"></div>
+
+  <!-- HUD -->
+  <div id="hud" class="hidden">
+    <div class="hud-top">
+      <div class="hud-box lives-box">
+        <span class="label">JONLAR</span>
+        <div id="lives-display" class="hearts">❤️❤️❤️</div>
+      </div>
+      <div class="hud-box score-box">
+        <div>
+          <span class="label">BALL</span>
+          <div id="score-display" class="value">0</div>
+        </div>
+        <div class="divider"></div>
+        <div>
+          <span class="label">REKORD</span>
+          <div id="highscore-display" class="value gold">0</div>
+        </div>
+      </div>
+      <button id="sound-toggle" class="icon-btn" title="Ovozni yoqish/o'chirish">🔊</button>
+    </div>
+    <div id="toast-msg" class="toast"></div>
+  </div>
+
+  <!-- START MENU -->
+  <div id="start-screen" class="overlay">
+    <div class="panel">
+      <div class="badge">3D MARS EXPEDITION</div>
+      <h1 class="title">MARS DRAGON<br><span>RUN</span></h1>
+      <p class="subtitle">Mars kraterlari, qaynoq lava va kosmik qoldiqlardan sakrab o'ting. Malinalarni yig'ib jon to'plang!</p>
+      <div class="controls-guide">
+        <div><span>A / D</span> yoki <span>◀ ▶</span> — Chap / O'ng</div>
+        <div><span>W / SPACE</span> — Sakrash</div>
+        <div><span>S / ▼</span> — Egilish</div>
+      </div>
+      <button id="play-btn" class="primary-btn">▶ PLAY</button>
+    </div>
+  </div>
+
+  <!-- GAME OVER MENU -->
+  <div id="gameover-screen" class="overlay hidden">
+    <div class="panel gameover-panel">
+      <div class="badge danger">MISSIYA TO'XTADI</div>
+      <h2 class="title small">GAME OVER</h2>
+      <div class="final-stats">
+        <div class="stat">
+          <span>TO'PLANGAN BALL</span>
+          <strong id="final-score">0</strong>
+        </div>
+        <div class="stat">
+          <span>ENG YUQORI REKORD</span>
+          <strong id="final-highscore" class="gold">0</strong>
+        </div>
+      </div>
+      <div class="btn-group">
+        <button id="revive-btn" class="revive-btn">✨ REVIVE (Qayta tirilish)</button>
+        <button id="restart-btn" class="primary-btn">↻ RESTART</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MOBILE CONTROLS -->
+  <div id="mobile-controls" class="hidden">
+    <div class="mobile-left">
+      <button id="btn-left" class="touch-btn">◀</button>
+      <button id="btn-right" class="touch-btn">▶</button>
+    </div>
+    <div class="mobile-right">
+      <button id="btn-duck" class="touch-btn">▼</button>
+      <button id="btn-jump" class="touch-btn jump">▲</button>
+    </div>
+  </div>
+
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>
